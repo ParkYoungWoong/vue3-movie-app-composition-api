@@ -31,9 +31,9 @@ onMounted(() => {
 
 // Title for page
 const h1: Ref<HTMLHeadingElement|null> = ref(null)
-console.log('created:', h1.value)
+console.log('created:', h1.value) // null
 onMounted(() => {
-  console.log('mounted/title', h1.value)
+  console.log('mounted/title', h1.value) // <h1>..
 })
 </script>
 
