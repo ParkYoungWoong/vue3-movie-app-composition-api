@@ -7,11 +7,10 @@ export interface IMovie {
 }
 export type IMovies = IMovie[]
 
-const movies: IMovies = []
-const movie: Partial<IMovie> = {}
-
 export const useMovieStore = defineStore('movie', {
   state() {
+    const movies: IMovies = []
+    const movie: Partial<IMovie> = {}
     return {
       title: '',
       page: 1,
@@ -29,13 +28,13 @@ export const useMovieStore = defineStore('movie', {
 
       const res = await fetch(`https://www.omdbapi.com?apikey=7035c60c&s=${this.title}&page=${this.page}`)
       const { Search } = await res.json()
-      
+
       this.movies.push(...(Search as IMovies))
     },
     async readMovieDetails(id: string) {
       if (this.loading) return
       this.loading = true
-      
+
       const res = await fetch(`https://www.omdbapi.com?apikey=7035c60c&i=${id}`)
       const movie: IMovie = await res.json()
 
