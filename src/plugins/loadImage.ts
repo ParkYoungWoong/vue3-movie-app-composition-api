@@ -21,6 +21,6 @@ export default {
 
 declare module 'vue' {
   interface ComponentCustomProperties {
-    $loadImage: (src: string) => void
+    $loadImage: (src: string) => Promise<undefined>
   }
 }
